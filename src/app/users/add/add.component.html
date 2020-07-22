@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-header ">
+    {{title}}
+  </div>
+  <form [formGroup]="addUserForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label>Id:</label>
+      <input type="text" class="form-control" placeholder="id" formControlName="id">
+      <div *ngIf="id.invalid && (id.dirty||id.touched)" class="alert alert-danger" role="alert">
+        ID khong duoc de trong
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" class="form-control" placeholder="name" formControlName="name">
+    </div>
+    <div *ngIf="name.invalid && (name.dirty||name.touched)" class="alert alert-danger" role="alert">
+      Ten khong duoc de trong
+    </div>
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" class="form-control" placeholder="name@example.com" formControlName="email">
+    </div>
+    <div *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger" role="alert">
+      <div *ngIf="email.errors.required">
+        Email khong duoc de trong
+      </div>
+      <div *ngIf="email.errors.email">
+        Email khong dung dinh dang
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Address:</label>
+      <textarea class="form-control" rows="3" placeholder="address" formControlName="address"></textarea>
+    </div>
+    <div *ngIf="address.invalid && (address.dirty||address.touched)" class="alert alert-danger" role="alert">
+      Dia chi khong duoc de trong
+    </div>
+  </form>
+</div>
+
+
+
